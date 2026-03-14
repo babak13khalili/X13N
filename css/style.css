@@ -1,8 +1,8 @@
 :root {
   --bg: #000;
   --text: #f3f3f3;
-  --muted: #8d8d8d;
-  --line: #444;
+  --muted: #9a9a9a;
+  --line: #4a4a4a;
   --accent: #ff2020;
 }
 
@@ -157,6 +157,15 @@ button {
 
 .post-body p + p {
   margin-top: 0.8rem;
+}
+
+.post-body strong {
+  font-weight: 500;
+  color: var(--text);
+}
+
+.post-body em {
+  font-style: italic;
 }
 
 .post-close {
