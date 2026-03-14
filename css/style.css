@@ -52,6 +52,12 @@ button {
   letter-spacing: 0.08em;
 }
 
+.brand-note {
+  margin-top: 0.15rem;
+  color: var(--muted);
+  font-size: 0.82rem;
+}
+
 .post-list {
   min-height: calc(100vh - 5.5rem);
   padding: 1.1rem 1rem 1.2rem 2.3rem;
