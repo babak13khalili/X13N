@@ -1,0 +1,198 @@
+:root {
+  --bg: #000;
+  --text: #f3f3f3;
+  --muted: #8d8d8d;
+  --line: #444;
+  --accent: #ff2020;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  min-height: 100%;
+  background: var(--bg);
+}
+
+body {
+  color: var(--text);
+  font: 400 1rem/1.5 "IBM Plex Mono", monospace;
+}
+
+button,
+summary {
+  color: inherit;
+  font: inherit;
+}
+
+button {
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+}
+
+.layout {
+  width: min(94vw, 40rem);
+  min-height: 100vh;
+  margin: 0 auto;
+  padding: 2rem 0;
+}
+
+.header {
+  padding: 1rem 1rem 0;
+}
+
+.brand {
+  font-size: 1.3rem;
+  font-weight: 400;
+  letter-spacing: 0.08em;
+}
+
+.post-list {
+  min-height: calc(100vh - 5.5rem);
+  padding: 1.1rem 1rem 1.2rem 2.3rem;
+}
+
+.post {
+  position: relative;
+  padding-left: 1.8rem;
+}
+
+.post + .post {
+  margin-top: 1.4rem;
+}
+
+.post::before {
+  content: ">";
+  position: absolute;
+  left: 0.72rem;
+  top: 0.26rem;
+  color: var(--accent);
+  line-height: 1;
+  transition: transform 0.18s ease;
+  transform-origin: 45% 55%;
+}
+
+.post[open]::before {
+  transform: rotate(90deg);
+}
+
+.post::after {
+  content: "";
+  position: absolute;
+  left: 1.04rem;
+  top: 1.45rem;
+  bottom: -1.05rem;
+  width: 1px;
+  background: var(--line);
+}
+
+.post:last-child::after {
+  display: none;
+}
+
+.post-summary {
+  list-style: none;
+  cursor: pointer;
+  padding-left: 0.35rem;
+}
+
+.post-summary::-webkit-details-marker {
+  display: none;
+}
+
+.post-title {
+  font-size: clamp(1rem, 2.4vw, 1.12rem);
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+.post-date,
+.post-link,
+.post-close {
+  color: var(--muted);
+  font-size: 0.82rem;
+}
+
+.post-date {
+  margin-top: 0.15rem;
+}
+
+.post-link {
+  display: inline-block;
+  margin-top: 0.12rem;
+}
+
+.post[open] .post-link {
+  display: none;
+}
+
+.post-content {
+  margin-top: 0.8rem;
+  padding-left: 2.15rem;
+}
+
+.post-body {
+  position: relative;
+  font-weight: 300;
+  line-height: 1.8;
+  text-align: justify;
+  text-justify: inter-word;
+  hyphens: auto;
+}
+
+.post-body::before {
+  content: "";
+  position: absolute;
+  top: 0.15rem;
+  bottom: 0.15rem;
+  left: -1.4rem;
+  width: 1px;
+  background: var(--line);
+}
+
+.post-body p + p {
+  margin-top: 0.8rem;
+}
+
+.post-close {
+  margin-top: 0.8rem;
+}
+
+.post-close:hover {
+  color: var(--text);
+}
+
+@media (max-width: 700px) {
+  .layout {
+    padding-top: 1.2rem;
+  }
+
+  .post-list {
+    padding-left: 1.5rem;
+  }
+
+  .post {
+    padding-left: 1.2rem;
+  }
+
+  .post::before {
+    left: 0.02rem;
+  }
+
+  .post::after {
+    left: 0.34rem;
+  }
+
+  .post-content {
+    padding-left: 1.3rem;
+  }
+
+  .post-body::before {
+    left: -0.9rem;
+  }
+}
