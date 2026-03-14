@@ -7,7 +7,6 @@ window.X13N_POSTS = [
       "I realized that the reality of life is very different from the images and assumptions I had in my mind.\nAs time passes, I understand more and more that many of the ideas I had about my future, my life, and the events that might happen were far from realistic.",
       "Life unfolds in a way that constantly shows me how unrealistic and somewhat fantastical my thoughts about the future were.\nI used to imagine that after a certain period of time, certain things would happen; that I would do certain things, behave in certain ways. But no.",
       "Once I actually find myself in the situations I had previously imagined, it becomes clear how mistaken those assumptions were, and how different the reality of my life and its trajectory is from what I had envisioned.\nIn truth, they were closer to illusions than to genuine expectations.",
-      "⸻",
       "**October 22, 2025**\n**20:17**\n**Somewhere in the sky, between Sweden and the Netherlands**"
     ]
   },
