@@ -31,6 +31,7 @@ jobs:
           node-version: 20
 
       - name: Build posts data
+        working-directory: Website
         run: node scripts/build-posts.mjs
 
       - name: Configure Pages
@@ -39,7 +40,7 @@ jobs:
       - name: Upload site artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: .
+          path: Website
 
       - name: Deploy to GitHub Pages
         id: deployment
