@@ -28,7 +28,7 @@ function renderBody(paragraphs = []) {
 
 function renderPost(post) {
   return `
-    <details class="post">
+    <details class="post" id="${escapeHtml(post.slug)}" data-post-slug="${escapeHtml(post.slug)}">
       <summary class="post-summary">
         <h2 class="post-title">${escapeHtml(post.title)}</h2>
         <p class="post-date">${escapeHtml(post.written)}</p>
@@ -45,6 +45,43 @@ function renderPost(post) {
   `;
 }
 
+function findPostBySlug(slug) {
+  return postList?.querySelector(`.post[data-post-slug="${CSS.escape(slug)}"]`) ?? null;
+}
+
+function closeAllPosts(exceptPost = null) {
+  if (!postList) {
+    return;
+  }
+
+  for (const post of postList.querySelectorAll('.post')) {
+    if (post !== exceptPost) {
+      post.open = false;
+    }
+  }
+}
+
+function syncPostFromHash() {
+  if (!postList) {
+    return;
+  }
+
+  const slug = decodeURIComponent(window.location.hash.slice(1));
+  if (!slug) {
+    closeAllPosts();
+    return;
+  }
+
+  const matchedPost = findPostBySlug(slug);
+  if (!matchedPost) {
+    return;
+  }
+
+  closeAllPosts(matchedPost);
+  matchedPost.open = true;
+  matchedPost.scrollIntoView({ block: 'start', behavior: 'smooth' });
+}
+
 if (postList) {
   postList.innerHTML = posts.map(renderPost).join('');
 
@@ -56,7 +93,15 @@ if (postList) {
     'toggle',
     (event) => {
       const currentPost = event.target;
-      if (!(currentPost instanceof HTMLDetailsElement) || !currentPost.open) {
+      if (!(currentPost instanceof HTMLDetailsElement)) {
+        return;
+      }
+
+      const slug = currentPost.dataset.postSlug;
+      if (!currentPost.open) {
+        if (slug && decodeURIComponent(window.location.hash.slice(1)) === slug) {
+          history.replaceState(null, '', window.location.pathname + window.location.search);
+        }
         return;
       }
 
@@ -64,6 +109,10 @@ if (postList) {
         if (post !== currentPost) {
           post.open = false;
         }
+      }
+
+      if (slug && decodeURIComponent(window.location.hash.slice(1)) !== slug) {
+        window.location.hash = encodeURIComponent(slug);
       }
     },
     true,
@@ -75,6 +124,18 @@ if (postList) {
       return;
     }
 
-    closeButton.closest('.post').open = false;
+    const post = closeButton.closest('.post');
+    if (!post) {
+      return;
+    }
+
+    post.open = false;
+
+    if (decodeURIComponent(window.location.hash.slice(1)) === post.dataset.postSlug) {
+      history.replaceState(null, '', window.location.pathname + window.location.search);
+    }
   });
+
+  window.addEventListener('hashchange', syncPostFromHash);
+  syncPostFromHash();
 }

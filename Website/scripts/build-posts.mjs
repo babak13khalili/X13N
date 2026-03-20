@@ -49,6 +49,10 @@ function titleFromFilename(filename) {
     .trim();
 }
 
+function slugFromFilename(filename) {
+  return path.basename(filename, '.md').toLowerCase();
+}
+
 function parseWrittenDate(value) {
   const match = String(value).match(/^(\d{2})-(\d{2})-(\d{4})$/);
   if (!match) {
@@ -75,6 +79,7 @@ async function buildPosts() {
     const writtenDate = parseWrittenDate(written);
 
     posts.push({
+      slug: slugFromFilename(file),
       title,
       written,
       body: splitParagraphs(bodyText),

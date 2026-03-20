@@ -36,6 +36,8 @@ button {
 }
 
 .layout {
+  display: flex;
+  flex-direction: column;
   width: min(94vw, 40rem);
   min-height: 100vh;
   margin: 0 auto;
@@ -59,7 +61,7 @@ button {
 }
 
 .post-list {
-  min-height: calc(100vh - 5.5rem);
+  flex: 1;
   padding: 1.1rem 1rem 1.2rem 2.3rem;
 }
 
@@ -182,6 +184,24 @@ button {
   color: var(--text);
 }
 
+.footer {
+  padding: 1.6rem 1rem 0.8rem 2.3rem;
+}
+
+.contact-text,
+.contact-link {
+  color: var(--muted);
+  font-size: 0.82rem;
+}
+
+.contact-link {
+  text-decoration: none;
+}
+
+.contact-link:hover {
+  color: var(--text);
+}
+
 @media (max-width: 700px) {
   .layout {
     padding-top: 1.2rem;
@@ -209,5 +229,9 @@ button {
 
   .post-body::before {
     left: -0.9rem;
+  }
+
+  .footer {
+    padding-left: 1.5rem;
   }
 }
