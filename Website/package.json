@@ -1,0 +1,8 @@
+{
+  "name": "x13n-website",
+  "private": true,
+  "scripts": {
+    "build": "node scripts/build-posts.mjs",
+    "watch-posts": "node scripts/build-posts.mjs --watch"
+  }
+}

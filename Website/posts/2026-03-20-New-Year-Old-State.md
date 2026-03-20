@@ -62,7 +62,7 @@ We had not yet processed the unprecedented repression and violence inflicted by 
 
 Even describing the contradictory emotional states we are experiencing feels nearly impossible.
 
-I have tried, many times, to separate events and analyze them,nand each time, I arrive at helplessness.
+I have tried, many times, to separate events and analyze them, and each time, I arrive at helplessness.
 
 I wonder:
 
