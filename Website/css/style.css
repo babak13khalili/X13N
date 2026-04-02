@@ -188,8 +188,14 @@ button {
   padding: 1.6rem 1rem 0.8rem 2.3rem;
 }
 
+.contact-text + .contact-text,
+.footer-note + .contact-text {
+  margin-top: 0.35rem;
+}
+
 .contact-text,
-.contact-link {
+.contact-link,
+.footer-note {
   color: var(--muted);
   font-size: 0.82rem;
 }

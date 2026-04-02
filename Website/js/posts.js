@@ -170,5 +170,45 @@ window.X13N_POSTS = [
       "“The delightful spring has arrived, yet the heart is not in place.”",
       "**20 March 2026 – 12:45**\n**Home, Groningen — the final hours of the Persian year**"
     ]
+  },
+  {
+    "slug": "2026-04-02-13-days-later",
+    "title": "13 Days Later",
+    "written": "02-04-2026",
+    "body": [
+      "**Thursday – 14:31**",
+      "Today is cloudy.\nYesterday was bright and sunny.",
+      "It has been 13 days since the last time I wrote.\nTwo weeks.\nI did not notice the passage of time at all, and I cannot believe how quickly these 13 days went by.\nThirteen days into our new year, one whose arrival I did not even get to truly feel.",
+      "During this short period, once again, many things happened, events that I am still trying to process and understand, while new ones continue to unfold without giving me any pause.",
+      "My father’s birthday passed, as well as the birthday of another relative.\nThe birthdays of a few old friends.\nA trip with the university.\nAnd the migration of close friends who used to live here, near me, to another European country.\nAnd once again, the experience of feeling even more alone.",
+      "The 13th day of the year, which has always been a meaningful, beautiful day in Iranian culture, is now passing in complete solitude, far from any celebration, far from friends and family, far from gatherings and nature.",
+      "Since my teenage years, I have had a particular sensitivity toward the number 13.\nI have never found a clear reason or philosophy behind it, but the fact that my birth date, in the Persian calendar, aligns with the 13th day of the third month has always felt like an intriguing numerical coincidence.\nIt made me more attentive to this number,\nmore aware of it than usual in my everyday life.",
+      "Because of this, whenever and wherever I encounter the number 13, it brings me a brief moment of pause and reflection.",
+      "And now, today, on the 13th day of the new Iranian year,\nonce again I skipped my class.\nOnce again, I am submerged in thoughts and stress.\nOnce again, anxiety.\nOnce again, rumination.",
+      "An attempt to process and understand everything,\nalmost futile.",
+      "The volume of events and their weight feel beyond comprehension.\nConcentration has become something almost unattainable these days.\nNo matter how much I try to give myself time, space, and patience, to see myself, to feel myself,\nit is as if I not only fail, but become even more entangled, heavier, more complex.",
+      "Every direction I look reveals an endless sea of ambiguity, fear, and worry.\nAnd I, on a floating piece of wood, do not know how long I can rely on it just to stay alive.",
+      "On one hand, I do everything that needs to be done, almost flawlessly, automatically.\nOn the other hand, I have almost lost my presence of mind, my ability to truly feel and grasp the moment.",
+      "I constantly suffer, yet I do not express it.\nI do not even see much value in expressing it.",
+      "The challenges, worries, anxieties, and sadness are one thing,\nbut not knowing the solution, the path forward, the way to improve, is far worse.",
+      "I tell myself, ask for help, talk, express everything in your mind, no matter how dark or heavy.\nBut before I can act on it, I stop.",
+      "Why should others have to carry my burdens, my anxieties, my depression,\nwhen in the end, they cannot really change anything,\nand they themselves are already dealing with their own lives?\nWould I not just be adding weight, maybe even guilt, to something they never asked for?",
+      "Nothing gets resolved.",
+      "The fear of an uncertain future still prevents me from enjoying the present,\nthis moment, this position, all the achievements and blessings I already have.",
+      "I am still full of life.\nFull of desire to act.\nFull of excitement to learn and experience.",
+      "But my mind, my fears, my thoughts, consume all my energy\nand block productivity,\nblock focus.",
+      "Time moves forward.\nLife flows on, mercilessly, waiting for no one.\nIt does not stop.",
+      "And whether I want it or not, I am condemned to continue.\nI am not dissatisfied with continuing,\nnot at all.",
+      "But these tangled, disturbing thoughts make everything infinitely harder.",
+      "Despite all these personal and external struggles, I continue.\nI still try to laugh, to joke, to enjoy moments, to be helpful in society and among friends.\nI still try to be useful, reliable, a source of warmth.\nCheerful, light, energetic.",
+      "Even though inside, I carry a storm.\nEven though from the outside, I receive very little of that same energy back.",
+      "Still, I continue.",
+      "And at the same time, I try, deeply, to extract something from this path, from these struggles.\nTo say something. To create something.",
+      "Who knows where we will end up?\nWho even knows where “the end” is?",
+      "No matter how much we plan or set goals,\nin the end, it feels like we are all just moving forward to see what happens.",
+      "Thirteen days of the new Iranian year have passed,\nand I still have not gotten used to naming this new year.",
+      "Many more sets of 13 days will pass,\nand I will still be in the process of trying to understand myself,\nlife,\nand how it all works.",
+      "**2 April 2026 – 15:15**\n**Home, Groningen**"
+    ]
   }
 ];
