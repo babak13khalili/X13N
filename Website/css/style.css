@@ -188,6 +188,50 @@ button {
   padding: 1.6rem 1rem 0.8rem 2.3rem;
 }
 
+.subscribe-form {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  flex-wrap: wrap;
+  margin-bottom: 0.45rem;
+}
+
+.subscribe-label,
+.subscribe-input,
+.subscribe-button {
+  color: var(--muted);
+  font-size: 0.82rem;
+}
+
+.subscribe-input {
+  min-width: min(16rem, 100%);
+  padding: 0.18rem 0;
+  border: 0;
+  border-bottom: 1px solid var(--line);
+  border-radius: 0;
+  background: transparent;
+  outline: none;
+}
+
+.subscribe-input::placeholder {
+  color: #6f6f6f;
+}
+
+.subscribe-input:focus {
+  border-bottom-color: var(--text);
+  color: var(--text);
+}
+
+.subscribe-button {
+  padding: 0;
+  text-decoration: underline;
+  text-underline-offset: 0.18rem;
+}
+
+.subscribe-button:hover {
+  color: var(--text);
+}
+
 .contact-text + .contact-text,
 .footer-note + .contact-text {
   margin-top: 0.35rem;
@@ -239,5 +283,15 @@ button {
 
   .footer {
     padding-left: 1.5rem;
+  }
+
+  .subscribe-form {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 0.35rem;
+  }
+
+  .subscribe-input {
+    min-width: 100%;
   }
 }

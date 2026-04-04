@@ -23,15 +23,29 @@
       <section class="post-list" id="post-list" aria-label="Posts"></section>
 
       <footer class="footer" aria-label="Footer">
+        <form
+          class="subscribe-form"
+          action="https://buttondown.com/api/emails/embed-subscribe/x13nzen"
+          method="post"
+          target="buttondown-subscribe-frame">
+          <label class="subscribe-label" for="subscribe-email">Subscribe</label>
+          <input
+            class="subscribe-input"
+            id="subscribe-email"
+            type="email"
+            name="email"
+            placeholder="you@example.com"
+            autocomplete="email"
+            required />
+          <input type="hidden" name="embed" value="1" />
+          <button class="subscribe-button" type="submit">Submit</button>
+        </form>
+        <iframe
+          class="subscribe-frame"
+          name="buttondown-subscribe-frame"
+          title="Buttondown subscription response"
+          hidden></iframe>
         <p class="contact-text">
-          <a
-            class="contact-link"
-            href="https://follow.it/https://babak13khalili.github.io/X13N?action=followPub"
-            target="_blank"
-            rel="noreferrer"
-            >Subscribe</a
-          >
-          <span class="footer-divider" aria-hidden="true">|</span>
           Contact:
           <a class="contact-link" href="mailto:X13N.ZEN@gmail.com">X13N.ZEN@gmail.com</a>
         </p>
