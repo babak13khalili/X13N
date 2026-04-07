@@ -210,5 +210,45 @@ window.X13N_POSTS = [
       "Many more sets of 13 days will pass,\nand I will still be in the process of trying to understand myself,\nlife,\nand how it all works.",
       "**2 April 2026 – 15:15**\n**Home, Groningen**"
     ]
+  },
+  {
+    "slug": "2026-04-06-habit-growth-or-forgetting",
+    "title": "Habit, Growth, or Forgetting?",
+    "written": "06-04-2026",
+    "body": [
+      "**Monday – 14:40**",
+      "I play my dedicated “lost-in-thought” playlist.\nI try to slow down the passage of time.\nTo remain still behind my laptop.\nTo direct my main energy and focus toward my mind and thoughts.",
+      "To write.",
+      "I stare out the window of my room.\nThe weather is sunny, exactly to my taste.\nI am immersed in the cave of my solitude, my safe room, longing and questioning why I didn’t take advantage of this good weather today, why I didn’t leave the house.\nYet at the same time, I cannot deny my need for solitude, silence, and giving space to my thoughts.",
+      "How painful it is that our desires and expectations, as humans, are never fully or sufficiently met.",
+      "In my mind, a highway of thoughts forms, moving at high speed.\nMy eyes see the world, but my mind sees things that have no physical or real presence.",
+      "I can remain immersed in this state for hours.\nBut at the same time, the expectation to extract something from these thoughts forces me to document this very state. To narrate it. To somehow use it.",
+      "I feel like a detective facing myself and my own life, constantly trying to solve mysteries, complexities, and find clues, yet in the end becoming more and more entangled.",
+      "I try to constantly place my entire life, past, present, and possible futures, in front of my eyes.",
+      "To observe.\nFrom different angles.\nNear and far.",
+      "This time, I am caught in understanding the meaning of “getting used to.”",
+      "A change of environment, distance, the absence of familiar and nostalgic people and places, does it slowly turn into forgetting and adapting to new conditions?\nOr do all these dual emotions, attachments, and connections remain like a thread tied to me forever, and I am simply trying not to look back?",
+      "It feels as if we must accept that absence from a certain space or condition naturally creates emotional distance.\nBut at the same time, I don’t want that.",
+      "As someone who has deliberately spent much of life stepping out of my comfort zone, and each time I felt safety and ease, chose again to disrupt it and seek a new challenge, I must say:\nthis process is infinitely heavy and difficult.",
+      "It does not matter how many times, how many years, or how much you have experienced it.\nLeaving the comfort zone will always remain endlessly challenging.",
+      "Now I am in a conflict, trying to hold onto the threads of the past, dragging them with me, while at the same time seeing this effort as irrational and futile, repeatedly reminding myself:\nyou have to let go,\nno matter how hard or bitter,\nyou have to let go and accept that you consciously chose this position, and nothing is as it was before. You cannot carry everything with you.",
+      "Is the result of time passing simply getting used to things, or becoming more mature and stronger?\nDoes getting used to mean becoming colder, more numb, forgetting?",
+      "Is\nforgetting,\nrelease,\nthe fading of emotions, attachments, and feelings, and rebuilding from zero,\na sign of growth?\nOr is it\nweakness, helplessness, resignation?",
+      "It feels as if one part of me decides, steps forward, moves ahead,\nwhile another part questions, observes, analyzes, and critiques.",
+      "A constant tension,\nwhich part is right in the end?\nWhere should I move forward, and where should I stand back and observe?",
+      "An endless struggle to see myself from multiple perspectives.",
+      "Here, I am more socially present than before.\nI attend gatherings.\nI have a more active and dynamic social circle.\nI go out more.\nI am invited more.",
+      "Here, I enjoy life more.\nI am experiencing new and unique things.\nAll of this brings joy and nourishment to my mind and soul.",
+      "But thoughts and attachments from the past weigh on my shoulders at every moment.",
+      "Now that, despite all challenges, I have a happier and more functional life here,\nI wish the few close and valuable people in my life could experience this alongside me.",
+      "That is why part of me constantly thinks about what I can do to bring them into these experiences,\na sense of responsibility that feels irrational.\nAnd at the same time, I tell myself:\nyou have no obligation toward others,\nyou must focus on your own life and move forward.\nThis way, everyone will be happier.",
+      "Yet the feeling of guilt and selfishness does not leave me.",
+      "There was nothing I could have done, and there is nothing I can do.\nAnd somehow, I find myself even undermining my current potential.",
+      "There is no expectation from my friends and family back home except success, happiness, and progress.",
+      "But I live each day with a sense of helplessness and guilt,\nand unconsciously deny myself the right to live fully,\nto experience life,\neven to experience emotional relationships.",
+      "As someone cautious and detail-oriented in life and human relationships,\nhere I have become even more conservative and careful,\ndespite the fact that one of my reasons for migration was to confront exactly this pattern,\nto become more bold and free in action.",
+      "It seems, as I had said before,\nthe reality and course of life are often very different from our expectations.",
+      "**April 6, 2026 – 16:21**\n**Home, Groningen**"
+    ]
   }
 ];

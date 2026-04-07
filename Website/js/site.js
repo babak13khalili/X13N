@@ -110,6 +110,7 @@ if (postList) {
           post.open = false;
         }
       }
+      currentPost.scrollIntoView({ block: 'start', behavior: 'smooth' });
 
       if (slug && decodeURIComponent(window.location.hash.slice(1)) !== slug) {
         window.location.hash = encodeURIComponent(slug);
