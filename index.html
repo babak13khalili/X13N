@@ -4,13 +4,33 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>X13N</title>
-    <meta http-equiv="refresh" content="0; url=./Website/" />
-    <link rel="canonical" href="./Website/" />
-    <script>
-      window.location.replace('./Website/');
-    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400;500&display=swap"
+      rel="stylesheet" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="alternate" type="application/rss+xml" title="X13N RSS Feed" href="feed.xml" />
+    <link rel="alternate" type="application/feed+json" title="X13N JSON Feed" href="feed.json" />
   </head>
   <body>
-    <p>If you are not redirected automatically, open <a href="./Website/">the website</a>.</p>
+    <main class="layout">
+      <header class="header">
+        <h1 class="brand">X13N</h1>
+        <p class="brand-note">/zɛn/</p>
+      </header>
+
+      <section class="post-list" id="post-list" aria-label="Posts"></section>
+
+      <footer class="footer" aria-label="Footer">
+        <p class="contact-text">
+          Contact:
+          <a class="contact-link" href="mailto:X13N.ZEN@gmail.com">X13N.ZEN@gmail.com</a>
+        </p>
+      </footer>
+    </main>
+
+    <script src="js/posts.js"></script>
+    <script src="js/site.js"></script>
   </body>
 </html>

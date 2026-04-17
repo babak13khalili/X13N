@@ -1,4 +1,3 @@
 [build]
-  base = "Website"
   command = "node scripts/build-posts.mjs"
   publish = "."
