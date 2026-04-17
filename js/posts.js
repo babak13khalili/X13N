@@ -256,7 +256,7 @@ window.X13N_POSTS = [
     "title": "The Inner Self",
     "written": "17-04-2026",
     "body": [
-      "**April 17, 2026 – Thursday, 00:16**",
+      "**Thursday – 00:16**",
       "For years, I felt the presence of another person living within me, someone who could have replaced everything I currently am.\nPerhaps entirely different, worlds apart.",
       "For years, I resisted his presence.\nI fought him and prevented his emergence.",
       "I was my own fiercest enemy.",

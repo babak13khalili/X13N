@@ -3,7 +3,7 @@ title: The Inner Self
 written: 17-04-2026
 ---
 
-**April 17, 2026 – Thursday, 00:16**
+**Thursday – 00:16**
 
 For years, I felt the presence of another person living within me, someone who could have replaced everything I currently am.
 Perhaps entirely different, worlds apart.
