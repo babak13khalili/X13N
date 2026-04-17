@@ -4,6 +4,9 @@
   --muted: #9a9a9a;
   --line: #4a4a4a;
   --accent: #ff2020;
+  /* Apple Notes–style yellow (system / link accent, reads well on dark bg) */
+  --notes-yellow: #ffd60a;
+  --notes-yellow-bright: #ffec4d;
 }
 
 * {
@@ -96,24 +99,25 @@ button {
 .post::before {
   content: "";
   position: absolute;
-  left: 0.5rem;
-  top: 0.5rem;
-  width: 0.28rem;
-  height: 0.28rem;
-  background: var(--muted);
+  left: 0.42rem;
+  top: 0.42rem;
+  width: 0.2rem;
+  height: 1.25rem;
+  border-radius: 999px;
+  background: var(--notes-yellow);
   transition: background-color 0.18s ease;
 }
 
 .post:hover::before,
 .post[open]::before {
-  background: var(--text);
+  background: var(--notes-yellow-bright);
 }
 
 .post::after {
   content: "";
   position: absolute;
-  left: 0.64rem;
-  top: 1.2rem;
+  left: 0.51rem;
+  top: 1.85rem;
   bottom: -0.45rem;
   width: 1px;
   background: var(--line);
@@ -259,11 +263,11 @@ button {
   }
 
   .post::before {
-    left: 0.08rem;
+    left: 0;
   }
 
   .post::after {
-    left: 0.22rem;
+    left: 0.1rem;
   }
 
   .post-content {
