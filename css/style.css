@@ -3,8 +3,7 @@
   --text: #f3f3f3;
   --muted: #9a9a9a;
   --line: #4a4a4a;
-  --accent: #ff2020;
-  /* Apple Notes–style yellow (system / link accent, reads well on dark bg) */
+  /* Apple Notes–style yellow used for the bullet accents. */
   --notes-yellow: #ffd60a;
   --notes-yellow-bright: #ffec4d;
 }
@@ -36,6 +35,11 @@ button {
   border: 0;
   background: transparent;
   cursor: pointer;
+}
+
+:focus-visible {
+  outline: 1px solid var(--notes-yellow-bright);
+  outline-offset: 2px;
 }
 
 .layout {
@@ -130,7 +134,7 @@ button {
   list-style: none;
   cursor: pointer;
   padding: 0.12rem 0 0.18rem 0.32rem;
-  transition: color 0.18s ease, background-color 0.18s ease;
+  transition: background-color 0.18s ease;
 }
 
 .post-summary::-webkit-details-marker {
@@ -219,22 +223,12 @@ button {
   text-transform: lowercase;
 }
 
-.post-close:hover {
-  color: var(--text);
-}
-
 .footer {
   padding: 0.7rem 1rem 0.9rem 2rem;
 }
 
-.contact-text + .contact-text,
-.footer-note + .contact-text {
-  margin-top: 0.35rem;
-}
-
 .contact-text,
-.contact-link,
-.footer-note {
+.contact-link {
   color: var(--muted);
   font-size: 0.74rem;
 }
@@ -279,5 +273,16 @@ button {
 
   .footer {
     padding-left: 1.35rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .post-list {
+    scroll-behavior: auto;
+  }
+
+  .post::before,
+  .post-summary {
+    transition: none;
   }
 }

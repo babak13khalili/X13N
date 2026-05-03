@@ -9,11 +9,18 @@ const outputFile = path.join(rootDir, 'js', 'posts.js');
 const rssOutputFile = path.join(rootDir, 'feed.xml');
 const jsonFeedOutputFile = path.join(rootDir, 'feed.json');
 const watchMode = process.argv.includes('--watch');
+
 const site = {
   title: 'X13N',
   description: 'New writings published on X13N.',
   url: 'https://babak13khalili.github.io/X13N',
 };
+
+const FRONTMATTER_RE = /^---\n([\s\S]*?)\n---\n?([\s\S]*)$/;
+const WRITTEN_DATE_RE = /^(\d{2})-(\d{2})-(\d{4})$/;
+const INLINE_BOLD_ITALIC_RE = /(\*\*\*|___)([\s\S]+?)\1/g;
+const INLINE_BOLD_RE = /(\*\*|__)([\s\S]+?)\1/g;
+const INLINE_ITALIC_RE = /(\*|_)([^\n]+?)\1/g;
 
 function splitParagraphs(text) {
   return text
@@ -24,7 +31,7 @@ function splitParagraphs(text) {
 }
 
 function parseFrontmatter(markdown) {
-  const match = markdown.match(/^---\n([\s\S]*?)\n---\n?([\s\S]*)$/);
+  const match = markdown.match(FRONTMATTER_RE);
   if (!match) {
     return { metadata: {}, bodyText: markdown.trim() };
   }
@@ -39,9 +46,7 @@ function parseFrontmatter(markdown) {
     const separatorIndex = line.indexOf(':');
     if (separatorIndex === -1) continue;
 
-    const key = line.slice(0, separatorIndex).trim();
-    const value = line.slice(separatorIndex + 1).trim();
-    metadata[key] = value;
+    metadata[line.slice(0, separatorIndex).trim()] = line.slice(separatorIndex + 1).trim();
   }
 
   return { metadata, bodyText: bodyText.trim() };
@@ -61,7 +66,7 @@ function slugFromFilename(filename) {
 }
 
 function parseWrittenDate(value) {
-  const match = String(value).match(/^(\d{2})-(\d{2})-(\d{4})$/);
+  const match = String(value).match(WRITTEN_DATE_RE);
   if (!match) {
     return null;
   }
@@ -82,9 +87,9 @@ function escapeXml(value) {
 
 function stripInlineMarkdown(value) {
   return String(value ?? '')
-    .replace(/(\*\*\*|___)([\s\S]+?)\1/g, '$2')
-    .replace(/(\*\*|__)([\s\S]+?)\1/g, '$2')
-    .replace(/(\*|_)([^\n]+?)\1/g, '$2');
+    .replace(INLINE_BOLD_ITALIC_RE, '$2')
+    .replace(INLINE_BOLD_RE, '$2')
+    .replace(INLINE_ITALIC_RE, '$2');
 }
 
 function buildPostUrl(slug) {
@@ -101,20 +106,27 @@ function buildPostSummary(body) {
   return summary.replace(/\n+/g, ' ');
 }
 
-function buildRssFeed(posts) {
+function feedItems(sortedPosts) {
+  return sortedPosts.map((post) => ({
+    ...post,
+    url: buildPostUrl(post.slug),
+    summary: buildPostSummary(post.body),
+  }));
+}
+
+function buildRssFeed(items) {
   const lastBuildDate = new Date().toUTCString();
-  const items = [...posts]
-    .sort((a, b) => b.sortValue - a.sortValue || a.title.localeCompare(b.title))
-    .map((post) => {
-      const postUrl = buildPostUrl(post.slug);
-      const summary = escapeXml(buildPostSummary(post.body));
-      const pubDate = post.publishedAt ? `\n      <pubDate>${new Date(post.publishedAt).toUTCString()}</pubDate>` : '';
+  const renderedItems = items
+    .map((item) => {
+      const pubDate = item.publishedAt
+        ? `\n      <pubDate>${new Date(item.publishedAt).toUTCString()}</pubDate>`
+        : '';
 
       return `    <item>
-      <title>${escapeXml(post.title)}</title>
-      <link>${escapeXml(postUrl)}</link>
-      <guid>${escapeXml(postUrl)}</guid>${pubDate}
-      <description>${summary}</description>
+      <title>${escapeXml(item.title)}</title>
+      <link>${escapeXml(item.url)}</link>
+      <guid>${escapeXml(item.url)}</guid>${pubDate}
+      <description>${escapeXml(item.summary)}</description>
     </item>`;
     })
     .join('\n');
@@ -126,81 +138,88 @@ function buildRssFeed(posts) {
     <link>${escapeXml(site.url)}</link>
     <description>${escapeXml(site.description)}</description>
     <lastBuildDate>${lastBuildDate}</lastBuildDate>
-${items}
+${renderedItems}
   </channel>
 </rss>
 `;
 }
 
-function buildJsonFeed(posts) {
-  const items = [...posts]
-    .sort((a, b) => b.sortValue - a.sortValue || a.title.localeCompare(b.title))
-    .map((post) => ({
-      id: buildPostUrl(post.slug),
-      url: buildPostUrl(post.slug),
-      title: post.title,
-      content_text: post.body.join('\n\n'),
-      summary: buildPostSummary(post.body),
-      date_published: post.publishedAt || undefined,
-    }));
+function buildJsonFeed(items) {
+  const feed = {
+    version: 'https://jsonfeed.org/version/1.1',
+    title: site.title,
+    home_page_url: site.url,
+    feed_url: `${site.url}/feed.json`,
+    description: site.description,
+    items: items.map((item) => ({
+      id: item.url,
+      url: item.url,
+      title: item.title,
+      content_text: item.body.join('\n\n'),
+      summary: item.summary,
+      date_published: item.publishedAt || undefined,
+    })),
+  };
 
-  return `${JSON.stringify(
-    {
-      version: 'https://jsonfeed.org/version/1.1',
-      title: site.title,
-      home_page_url: site.url,
-      feed_url: `${site.url}/feed.json`,
-      description: site.description,
-      items,
-    },
-    null,
-    2,
-  )}\n`;
+  return `${JSON.stringify(feed, null, 2)}\n`;
 }
 
-async function buildPosts() {
+async function loadPosts() {
   const files = (await readdir(postsDir))
     .filter((file) => file.endsWith('.md') && !file.startsWith('_'))
     .sort();
 
-  const posts = [];
+  const posts = await Promise.all(
+    files.map(async (file) => {
+      const markdown = await readFile(path.join(postsDir, file), 'utf8');
+      const { metadata, bodyText } = parseFrontmatter(markdown);
+      const writtenDate = parseWrittenDate(metadata.written || '');
 
-  for (const file of files) {
-    const markdown = await readFile(path.join(postsDir, file), 'utf8');
-    const { metadata, bodyText } = parseFrontmatter(markdown);
-    const title = metadata.title || titleFromFilename(file);
-    const written = metadata.written || '';
-    const writtenDate = parseWrittenDate(written);
+      return {
+        slug: slugFromFilename(file),
+        title: metadata.title || titleFromFilename(file),
+        written: metadata.written || '',
+        body: splitParagraphs(bodyText),
+        publishedAt: writtenDate ? writtenDate.toISOString() : null,
+        sortValue: writtenDate ? writtenDate.getTime() : 0,
+      };
+    }),
+  );
 
-    posts.push({
-      slug: slugFromFilename(file),
-      title,
-      written,
-      body: splitParagraphs(bodyText),
-      publishedAt: writtenDate ? writtenDate.toISOString() : null,
-      sortValue: writtenDate ? writtenDate.getTime() : 0,
-    });
-  }
+  return posts;
+}
 
-  posts.sort((a, b) => a.sortValue - b.sortValue || a.title.localeCompare(b.title));
+function compareDescByDate(a, b) {
+  return b.sortValue - a.sortValue || a.title.localeCompare(b.title);
+}
 
-  const browserPosts = posts.map(({ sortValue, publishedAt, ...post }) => post);
+function logBuild(count) {
+  const time = new Date().toLocaleTimeString('en-GB', {
+    hour: '2-digit',
+    minute: '2-digit',
+    second: '2-digit',
+  });
+  console.log(`[${time}] Built ${count} posts into js/posts.js, feed.xml, and feed.json`);
+}
+
+async function buildPosts() {
+  const posts = await loadPosts();
+
+  const ascending = [...posts].sort((a, b) => a.sortValue - b.sortValue || a.title.localeCompare(b.title));
+  const descending = [...posts].sort(compareDescByDate);
+
+  const browserPosts = ascending.map(({ sortValue, publishedAt, ...post }) => post);
+  const items = feedItems(descending);
+
   const output = `// Generated by scripts/build-posts.mjs\nwindow.X13N_POSTS = ${JSON.stringify(browserPosts, null, 2)};\n`;
-  const rssFeed = buildRssFeed(posts);
-  const jsonFeed = buildJsonFeed(posts);
 
   await Promise.all([
     writeFile(outputFile, output, 'utf8'),
-    writeFile(rssOutputFile, rssFeed, 'utf8'),
-    writeFile(jsonFeedOutputFile, jsonFeed, 'utf8'),
+    writeFile(rssOutputFile, buildRssFeed(items), 'utf8'),
+    writeFile(jsonFeedOutputFile, buildJsonFeed(items), 'utf8'),
   ]);
-  console.log(
-    `[${new Date().toLocaleTimeString('en-GB', {
-      hour: '2-digit',
-      minute: '2-digit',
-      second: '2-digit',
-    })}] Built ${browserPosts.length} posts into js/posts.js, feed.xml, and feed.json`,
-  );
+
+  logBuild(browserPosts.length);
 }
 
 async function run() {
