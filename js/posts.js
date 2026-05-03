@@ -298,5 +298,18 @@ window.X13N_POSTS = [
       "An image of the self standing before the self, both stunned, wondering why they treated each other this way for so many years.",
       "**April 17, 2026 — 14:56 · Home, Groningen**"
     ]
+  },
+  {
+    "slug": "2026-05-03-breaking-again",
+    "title": "Breaking Again",
+    "written": "03-05-2026",
+    "body": [
+      "**Sunday – 22:55**",
+      "Tonight, I broke again.\nCollapsed.\nCame apart.",
+      "And yet, I’m still alive.\nMy body remains, unchanged.\nThe world, with all its details, continues as it is, moving forward.\nTime keeps passing.",
+      "I broke.\nI screamed.",
+      "But even I couldn’t hear my own voice.\nLet alone anyone else.",
+      "**May 18, 2026 – 23:05**\n**Home, Groningen**"
+    ]
   }
 ];
